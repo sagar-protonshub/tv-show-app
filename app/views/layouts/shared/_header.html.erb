@@ -16,7 +16,7 @@
 	      <li><%= link_to "Channels", channels_path %></li>
 	      <li><%= link_to "Shows", shows_path %></li>
 	      <li><%= link_to "My favourite Shows", my_favourite_shows_path %></li>
-	      <li><%= link_to "Log out", destroy_user_session_path(current_user) %></li>
+	      <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
     	<% end %>
     </ul>
   </div>

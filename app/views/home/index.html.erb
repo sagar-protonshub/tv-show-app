@@ -1,1 +1,12 @@
 <div class="container"><h1 class="text-center"> Hello! Welcome to channel's App </h1></div>
+
+<% unless current_user.present? %>
+<div class="text-center">
+
+
+	<%= link_to "Get Started with sign-in",new_user_session_path,class: "btn centre btn-primary"%>
+
+
+</div>
+  
+<%end %>
