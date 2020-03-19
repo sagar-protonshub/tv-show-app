@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Notification for the show
+	</title>
+</head>
+<body>
+
+	<h1>Hi <%= @favourite.user.email %></h1>
+	<h1>Your show detail are following:</h1>
+    <h1>Show Time: <%= @favourite.show.show_time  %></h1> 
+    <h1>Show Name: <%= @favourite.show.name  %></h1>
+    <h1>Channel Name: <%= @favourite.show&.channel.name %></h1> 
+</body>
+</html>

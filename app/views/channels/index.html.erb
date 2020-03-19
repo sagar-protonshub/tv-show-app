@@ -1,0 +1,14 @@
+<div class="container">
+	<h3>Channels</h3>
+	<table class="table table-striped table-bordered">
+		<th>Name</th>
+		<th>Show count</th>
+
+		<% @channels.each do |channel|%>
+			<tr>
+				<td><%= channel.name %></td>	
+				<td><%= channel.shows_count %></td>	
+			</tr>
+		<% end %>
+	</table>
+</div>

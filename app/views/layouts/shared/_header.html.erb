@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Channel App</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user.present? %>
+			  <li>
+				  <%= form_for :search, url: shows_path, method: :get, :html => {class: "navbar-form navbar-left"} do |f| %>
+				  	<div class="form-group">
+		          <%= text_field_tag "search_term", "" ,class: "form-control", placeholder: "Search"%>
+		        </div>
+				  	<%= button_tag "Search", type: "button", class: "btn btn-default" %>
+				  <% end %> 
+			  </li>
+	      <li><%= link_to "Channels", channels_path %></li>
+	      <li><%= link_to "Shows", shows_path %></li>
+	      <li><%= link_to "My favourite Shows", my_favourite_shows_path %></li>
+	      <li><%= link_to "Log out", destroy_user_session_path(current_user) %></li>
+    	<% end %>
+    </ul>
+  </div>
+</nav>

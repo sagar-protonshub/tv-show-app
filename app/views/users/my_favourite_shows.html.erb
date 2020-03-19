@@ -1,0 +1,24 @@
+<div class="container">
+	<h3>My Favourite Shows</h3>
+	<table class="table table-striped table-bordered">
+		<th>Name</th>
+		<th>Timing</th>
+		<th>Channel</th>
+		<th>Duration</th>
+		<th>Add/ Remove from favourite</th>
+
+		<% @shows.each do |show|%>
+			<tr>
+				<td><%= show.name %></td>	
+				<td><%= show.show_time %></td>	
+				<td><%= show.channel_name %></td>
+				<td><%= show.duration %></td>	
+				<% unless current_user.favourites.where(show_id: show.id).present? %>
+					<td><%= link_to "Mark as favourite", show_set_as_favourite_path(show) %></td>
+				<% else %>
+					<td><%= link_to "Remove from favourite", show_remove_from_favourite_path(show), method: :delete %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+</div>
