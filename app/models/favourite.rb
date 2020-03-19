@@ -6,7 +6,8 @@ class Favourite < ApplicationRecord
 
 
 	def schedule_notification_for_user
-		time = Time.now - (self.show.show_time.to_i*60*60) - 30.minutes
+		time = self.show.show_time.split(":")
+		time = Time.now + (time.first.to_i.hours) + (time.last.to_i.minutes) - 30.minutes
 		EmailWorker.perform_at(time,"send_notification",self.id)
 	 end 
 end
